@@ -1,0 +1,29 @@
+; AutoITScript code.
+
+; Have your Sharepoint window open in your left screen, Outlook open in the right.
+; The script will select the very bottom email, then move to the attachment file and drag it to your Sharepoint window.
+; Very basic stuff, I just needed to copy several hundred PDF files attached in my emails this way.  I don't like .eml files.
+
+; Script Start
+$x = 1
+sleep ( 5000 )
+
+For $x = 1 to 300
+SelectMessage()
+DragPDF()
+Next
+
+func SelectMessage()
+MouseMove ( 2367, 1114, 10 )
+MouseClick ( "Left", 2367, 1114, 1, 10 )
+sleep ( 500 )
+send ( "{DOWN}" )
+sleep ( 500 )
+EndFunc
+
+func DragPDF()
+MouseMove ( 3077, 317, 10 )
+sleep ( 500 )
+MouseDrag ( "Left", 3077, 317, 1353, 1034, 10 )
+sleep ( 2500 )
+EndFunc
